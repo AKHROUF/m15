@@ -9,18 +9,28 @@ import java.util.Date;
  * @version 1.0 (2021-04-24)
  *
  */
-public class Personne {
-
-	private int matricule;
-	private String nom;
-	private String prenom;
-	private Date  dateNaissance;
-	private String numeroTelephone;
+// 1 .
+public abstract class Personne {
+	public static final String IP = "192.168.1.1";
+	public static String ENTREPRISE = "Ibn Rochd";
+    // 2.
+	protected final  int matricule;
+	protected String nom;
+	protected String prenom;
+	protected Date  dateNaissance;
+	protected String numeroTelephone;
 	
+	//5. 
 	/**
 	 * Créer une nouvelle personne sans matricule ni nom ni ....
 	 */
 	public Personne() {	
+//		this.matricule = 1;
+//		this.nom = "";
+//		this.prenom = "";
+//		this.dateNaissance = new Date();
+//		this.numeroTelephone = "";
+		this(1,"","",new Date(),"");
 	}
 
 	/**
@@ -40,6 +50,7 @@ public class Personne {
 		this.numeroTelephone = numeroTelephone;
 	}
 
+	//3.
 	/**
 	 * récupérer le matricule de la personne actuelle
 	 * @return le matricule
@@ -48,9 +59,9 @@ public class Personne {
 		return matricule;
 	}
 
-	public void setMatricule(int matricule) {
-		this.matricule = matricule;
-	}
+//	public void setMatricule(int matricule) {
+//		this.matricule = matricule;
+//	}
 
 	public String getNom() {
 		return nom;
@@ -83,9 +94,14 @@ public class Personne {
 	public void setNumeroTelephone(String numeroTelephone) {
 		this.numeroTelephone = numeroTelephone;
 	}
-
+//4.
 	public void demande(String message) {
 		System.out.println(">>>>> " + message);
 	}
 	
+	public final void afficher() {
+		System.out.println(matricule + " " + nom + " " + prenom);
+	}
+	
+	public abstract void sabsenter();
 }
